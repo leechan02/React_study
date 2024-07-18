@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
+function AppProfile() {
   const name = "euiclee";
   const list = ["apple", "banana", "orange"];
 
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppProfile;

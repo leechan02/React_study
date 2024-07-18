@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  const name = 'euiclee';
+  const name = "euiclee";
+  const list = ["apple", "banana", "orange"];
+
   return (
     <>
-      <h1 className='orange'>hello</h1>
+      <h1 className="orange">{`Hello! ${name}`}</h1>
       <h2>Hello!</h2>
       <p>{name}</p>
       <ul>
-        <li>apple</li>
-        <li>banana</li>
-        <li>orange</li>
+        {list.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
     </>
   );

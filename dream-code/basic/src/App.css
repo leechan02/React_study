@@ -48,6 +48,7 @@
   background-color: #ebebeb;
   border-radius: 20px;
   box-shadow: 7px 5px 23px -9px rgba(0,0,0,0.75);
+  margin-bottom: 1rem;
   -webkibox-shadow: 7px 5px 23px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: 7px 5px 23px -9px rgba(0,0,0,0.75);
 }

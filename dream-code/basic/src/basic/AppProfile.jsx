@@ -1,12 +1,12 @@
 import "./App.css";
-import Profile from "./components/Profile";
-import Avatar from "./components/Avatar";
+import Profile from "./basic/components/Profile";
+import Avatar from "./basic/components/Avatar";
 
 function AppProfile() {
   const handleClick = (event) => {
     console.log(event);
     console.log("버튼이 클릭되었습니다.");
-  }
+  };
   return (
     <>
       <button onClick={handleClick}>button</button>

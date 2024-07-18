@@ -1,4 +1,4 @@
-import Counter from "./components/Counter";
+import Counter from "./basic/components/Counter";
 import React, { useState } from "react";
 import "./App.css";
 
@@ -11,8 +11,8 @@ export default function AppCounter() {
         Total Count: {count} {count > 10 ? "🔥" : "🧊"}
       </div>
       <div className="counters">
-        <Counter total={count} onClick={handleClick}/>
-        <Counter total={count} onClick={handleClick}/>
+        <Counter total={count} onClick={handleClick} />
+        <Counter total={count} onClick={handleClick} />
       </div>
     </div>
   );

@@ -42,7 +42,6 @@
 }
 
 .profile {
-  position: relative;
   width: 300px;
   text-align: center;
   padding: 1rem;
@@ -69,4 +68,11 @@
   border-radius: 0.5rem;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.avatar {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
 }

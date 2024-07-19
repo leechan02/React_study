@@ -34,6 +34,17 @@ export default function AppMentors() {
         onClick={() => {
           const prev = prompt(`who's mentor do you want to change?`);
           const current = prompt(`what is the new mentor's name?`);
+
+          setPerson((person) => ({
+            ...person,
+            mentors: person.mentors.map((mentor) => {
+              if (mentor.name === prev) {
+                return { ...mentor, name: current };
+              } else {
+                return mentor;
+              }
+            }),
+          }));
         }}
       >
         Change mentor name

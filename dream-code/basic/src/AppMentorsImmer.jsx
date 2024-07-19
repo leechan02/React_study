@@ -1,29 +1,37 @@
-import React, { useReducer } from "react";
-import personReducer from "./reducer/person-reducer";
+import React, { useState } from "react";
+import { useImmer } from "use-immer";
 
 export default function AppMentors() {
-  const [person, dispatch] = useReducer(personReducer, initialPerson);
-  
+  const [person, updatePerson] = useImmer(initialPerson);
+
   const handleUpdate = () => {
     const prev = prompt(`who's mentor do you want to change?`);
     const current = prompt(`what is the new mentor's name?`);
-    
-    dispatch({ type: "updated", prev, current });
+
+    updatePerson((person) => {
+      const mentor = person.mentors.find((mentor) => mentor.name === prev);
+      mentor.name = current;
+    });
   };
-  
+
   const handleAdd = () => {
     const name = prompt(`what's your mentor's name?`);
     const title = prompt(`what's your mentor's title?`);
-    
-    dispatch({ type: "added", name, title });
+
+    updatePerson((person) => person.mentors.push({ name, title }));
   };
-  
+
   const handleDelete = () => {
     const name = prompt(`what's your mentor's name?`);
-    
-    dispatch({ type: "deleted", name });
+
+    updatePerson(
+      (person) =>
+        (person.mentors = person.mentors.filter(
+          (mentor) => mentor.name !== name
+        ))
+    );
   };
-  
+
   return (
     <div>
       <h1>

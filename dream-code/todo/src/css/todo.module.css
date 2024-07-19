@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.txt {
+  color: var(--Text, #272727);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.remove {
+  display: flex;
+  padding: 0px 4px;
+  align-items: center;
+  gap: 10px;
+}

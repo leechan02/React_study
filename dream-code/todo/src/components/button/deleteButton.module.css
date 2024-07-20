@@ -1,0 +1,26 @@
+.btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: var(--Ring);
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: var(--Delete);
+  transform: scale(1.2);
+}
+
+.icon {
+  background-color: transparent;
+  border: none;
+  color: var(--Background);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

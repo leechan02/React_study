@@ -1,6 +1,11 @@
 import React from "react";
-import button from "../css/roundButton.module.css";
+import style from "./roundButton.module.css";
 
 export default function RoundButton({ color }) {
-  return <button className={button.round} style={{ backgroundColor: color }}></button>;
+  return (
+    <button
+      className={style.button}
+      style={{ backgroundColor: color }}
+    ></button>
+  );
 }

@@ -1,11 +1,15 @@
 import React from "react";
-import style from "../css/stateButton.module.css";
+import style from "./stateButton.module.css";
 
-export default function StateButton({ txt }) {
+export default function StateButton({ value, filter, onClick }) {
   return (
     <div className={style.container}>
-      <button className={style.text}>{txt}</button>
-      <div className={style.bar}></div>
+      <button
+        className={`${style.text} ${filter === value && style.selected}`}
+        onClick={onClick}
+      >
+        {value}
+      </button>
     </div>
   );
 }

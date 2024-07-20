@@ -12,7 +12,7 @@
 }
 
 .txt {
-  color: var(--Text, #272727);
+  color: var(--Text);
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -25,4 +25,8 @@
   padding: 0px 4px;
   align-items: center;
   gap: 10px;
+}
+
+.button {
+  padding: 0 4px;
 }

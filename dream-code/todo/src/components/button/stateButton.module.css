@@ -7,19 +7,25 @@
 
 .text {
   align-self: stretch;
-  color: var(--Menu, #007AFF);
+  color: var(--Menu);
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   border: none;
-  background-color: var(--Background, #FFFFFF);
+  background-color: transparent;
+  opacity: 0.8;
 }
 
-.bar {
-  height: 0px;
-  align-self: stretch;
-  stroke-width: 3px;
-  stroke: var(--Ring, #E6E6E6);
+.text:hover, .text.selected {
+  opacity: 1;
+}
+
+.text.selected::after {
+  content: '';
+  display: block;
+  margin-top: 0.2rem;
+  border: 2px solid var(--Ring);
+  border-radius: 20%;
 }

@@ -1,16 +1,18 @@
 import React from "react";
-import style from "../css/todo.module.css";
-import CheckButton from "./checkButton";
-import DeleteButton from "./deleteButton";
+import style from "./todo.module.css";
+import CheckButton from "../button/checkButton";
+import DeleteButton from "../button/deleteButton";
 
-export default function Todo({isCheck, msg}) {
+export default function Todo({todo, onUpdate, onDelete}) {
   return (
     <div className={style.container}>
       <div className={style.checkBox}>
-        <CheckButton isCheck={isCheck} />
-        <div className={style.txt}>{msg}</div>
+        <CheckButton todo={todo} onUpdate={onUpdate}/>
+        <div className={style.txt}>{todo.text}</div>
       </div>
-      <DeleteButton />
+      <span className={style.button}>
+        <DeleteButton todo={todo} onDelete={onDelete}/>
+      </span>
     </div>
   );
 }

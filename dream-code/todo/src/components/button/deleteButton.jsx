@@ -1,13 +1,14 @@
 import React from "react";
-import style from "../css/deleteButton.module.css";
-import Delete from "../delete.svg";
+import style from "./deleteButton.module.css";
+import { FaTrashAlt } from 'react-icons/fa';
 
-export default function DeleteButton() {
+export default function DeleteButton({ todo, onDelete }) {
+  const handleDelete = () => onDelete(todo);
   return (
-    <button className={style.btn}>
-      <div className={style.back}>
-        <img src={Delete} alt="icon" className={style.icon} />
-      </div>
-    </button>
+    <span className={style.btn}>
+      <button className={style.icon} onClick={handleDelete}>
+        <FaTrashAlt />
+      </button>
+    </span>
   );
 }

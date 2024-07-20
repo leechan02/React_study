@@ -1,8 +1,10 @@
 import React from "react";
-import button from "../css/addButton.module.css";
+import style from "./addButton.module.css";
 
-export default function AddButton() {
+export default function AddButton({ onClick }) {
   return (
-    <button className={button.button}>Add</button>
-  )
+    <button className={style.button} onClick={onClick}>
+      Add
+    </button>
+  );
 }

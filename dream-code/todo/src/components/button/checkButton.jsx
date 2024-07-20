@@ -1,12 +1,16 @@
 import React from "react";
-import style from "../css/checkButton.module.css";
-import unCheck from "../unCheck.svg"
-import Check from "../Check.svg"
+import style from "./checkButton.module.css";
+import unCheck from "../../img/unCheck.svg";
+import Check from "../../img/Check.svg";
 
-export default function CheckButton({isCheck}) {
+export default function CheckButton({ todo, onUpdate }) {
+  const handleChange = (e) => {
+    onUpdate({ ...todo, status: todo.status === "active" ? "completed" : "active" });
+  };
+
   return (
-    <button className={style.container}>
-      <img src={isCheck ? Check : unCheck} alt="checkButton" />
+    <button className={style.button} onClick={handleChange}>
+      <img src={todo.status === "active" ? unCheck : Check} alt="checkButton" />
     </button>
   );
 }

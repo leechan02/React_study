@@ -5,10 +5,11 @@
   align-items: center;
   gap: 10px;
   border-radius: 16px;
-  background: var(--Menu, #007AFF);
+  background: var(--Menu);
   border: none;
+  cursor: pointer;
 
-  color: var(--Background, #FFF);
+  color: var(--Background);
   font-family: 'inter', sans-serif;
   font-size: 24px;
   font-style: normal;

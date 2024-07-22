@@ -3,6 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "../components/VideoCard";
 import Fake from "../api/fake";
+import Youtube from "../api/youtube";
 
 export default function Videos() {
   const { keyword } = useParams();
@@ -13,7 +14,7 @@ export default function Videos() {
   } = useQuery({
     queryKey: ["videos", keyword],
     queryFn: () => {
-      const youtube = new Fake();
+      const youtube = new Youtube();
       return youtube.search(keyword);
     } });
 

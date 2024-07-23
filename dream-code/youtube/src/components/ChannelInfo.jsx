@@ -9,9 +9,9 @@ export default function ChannelInfo({ id, title }) {
     queryFn: () => youtube.channelImageURL(id),
   });
   return (
-    <div>
-      {url && <img src={url} alt={title} />}
-      <p>{title}</p>
+    <div className="flex items-center my-4 mb-8">
+      {url && <img src={url} alt={title} className="rounded-full w-10 h-10"/>}
+      <p className="font-medium text-lg ml-2">{title}</p>
     </div>
   );
 }

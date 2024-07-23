@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillPencilFill } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { login } from "../firebase/firebase";
 
 export default function NavBar() {
   return (
@@ -16,7 +17,7 @@ export default function NavBar() {
         <Link to="/products/new" className="text-2xl">
           <BsFillPencilFill />
         </Link>
-        <button>Login</button>
+        <button onClick={login}>Login</button>
       </nav>
     </header>
   );

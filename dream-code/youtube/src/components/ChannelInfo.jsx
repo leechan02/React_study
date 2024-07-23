@@ -7,6 +7,7 @@ export default function ChannelInfo({ id, title }) {
   const { data: url } = useQuery({
     queryKey: ["channel", id],
     queryFn: () => youtube.channelImageURL(id),
+    staleTime: 1000 * 60 * 60 * 24,
   });
   return (
     <div className="flex items-center my-4 mb-8">

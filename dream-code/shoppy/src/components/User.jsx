@@ -6,7 +6,8 @@ export default function User({ user: { photoURL, displayName } }) {
       <img
         src={photoURL}
         alt={displayName}
-        className="w-10 h-10 rounded-full mr-2"
+        className="w-8 h-8 rounded-full mr-2"
+        referrerPolicy="no-referrer"
       />
       <span className="hidden md:block">{displayName}</span>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
+import { uploadImage } from "../api/uploader";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -14,6 +15,9 @@ export default function NewProduct() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    uploadImage(file).then((url) => {
+      console.log(url);
+    });
   };
   return (
     <section>
@@ -61,12 +65,12 @@ export default function NewProduct() {
         <input
           type="text"
           name="option"
-          value={product.options ?? ""}
+          value={product.option ?? ""}
           placeholder="separator by comma"
           required
           onChange={handleChange}
         />
-        <Button text="submit product" />
+        <Button text="submit" onClick={handleSubmit}/>
       </form>
     </section>
   );

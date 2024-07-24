@@ -48,12 +48,21 @@ async function adminUser(user) {
 }
 
 export async function addNewProduct(product, imageURL) {
-  const id = uuid();;
+  const id = uuid();
   return set(ref(database, `products/${id}`), {
     ...product,
     id,
     price: parseInt(product.price),
     image: imageURL,
     options: product.option.split(","),
+  });
+}
+
+export async function getProducts() {
+  return get(ref(database, "products")).then((snapshot) => {
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+    return [];
   });
 }

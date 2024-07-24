@@ -6,6 +6,8 @@ import { addNewProduct } from "../api/firebase";
 export default function NewProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "file") {
@@ -16,15 +18,31 @@ export default function NewProduct() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    uploadImage(file).then((url) => {
-      console.log(url);
-      addNewProduct(product, url);
-    });
+    setIsUploading(true);
+    uploadImage(file)
+      .then((url) => {
+        console.log(url);
+        addNewProduct(product, url).then(() => {
+          setSuccess(true);
+          setTimeout(() => {
+            setSuccess(false);
+          }, 5000);
+        });
+      })
+      .finally(() => setIsUploading(false));
   };
   return (
-    <section>
-      {file && <img src={URL.createObjectURL(file)} alt="product" />}
-      <form onSubmit={handleSubmit}>
+    <section className="w-full text-center">
+      <h2 className="text-2xl font-bold my-4">New Product</h2>
+      {success && <p className="my-2">✅ Product added successfully</p>}
+      {file && (
+        <img
+          className="w-96 mx-auto mb-2"
+          src={URL.createObjectURL(file)}
+          alt="product"
+        />
+      )}
+      <form onSubmit={handleSubmit} className="flex flex-col px-12">
         <input
           type="file"
           accept="image/*"
@@ -72,7 +90,10 @@ export default function NewProduct() {
           required
           onChange={handleChange}
         />
-        <Button text="submit" onClick={handleSubmit} />
+        <Button
+          text={isUploading ? "Uploaing..." : "Submit"}
+          onClick={handleSubmit}
+        />
       </form>
     </section>
   );

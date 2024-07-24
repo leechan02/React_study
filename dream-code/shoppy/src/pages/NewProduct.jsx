@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import { uploadImage } from "../api/uploader";
+import { addNewProduct } from "../api/firebase";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -17,6 +18,7 @@ export default function NewProduct() {
     e.preventDefault();
     uploadImage(file).then((url) => {
       console.log(url);
+      addNewProduct(product, url);
     });
   };
   return (
@@ -70,7 +72,7 @@ export default function NewProduct() {
           required
           onChange={handleChange}
         />
-        <Button text="submit" onClick={handleSubmit}/>
+        <Button text="submit" onClick={handleSubmit} />
       </form>
     </section>
   );

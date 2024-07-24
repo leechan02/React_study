@@ -4,6 +4,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { login, logout, onUserStateChange } from "../firebase/firebase";
 import User from "./User";
+import Button from "./ui/Button";
 
 export default function NavBar() {
   const [user, setUser] = useState();
@@ -22,12 +23,14 @@ export default function NavBar() {
       <nav className="flex items-center gap-4 font-semibold">
         <Link to="/products">Products</Link>
         <Link to="/carts">Carts</Link>
-        <Link to="/products/new" className="text-2xl">
-          <BsFillPencilFill />
-        </Link>
+        {user && user.isAdmin && (
+          <Link to="/products/new" className="text-2xl">
+            <BsFillPencilFill />
+          </Link>
+        )}
         {user && <User user={user} />}
-        {!user && <button onClick={login}>Login</button>}
-        {user && <button onClick={logout}>Logout</button>}
+        {!user && <Button onClick={login} text="Login" />}
+        {user && <Button onClick={logout} text="Logout" />}
       </nav>
     </header>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./list.module.css";
 import Todo from "./todo";
 

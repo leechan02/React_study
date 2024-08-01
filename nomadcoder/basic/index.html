@@ -10,9 +10,20 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script>
   const root = document.getElementById("root");
-  const title = (<h2 id="title" onMouseEnter={() => console.log("hovered")}>hello</h2>);
-  const btn = (<button onClick={() => console.log("clicked")}>click</button>);
-  const container = React.createElement("div", null, [title, btn]);
+  function Title() {
+    return (
+      <h1>hello world</h1>
+    );
+  }
+  const Button = () => (
+    <button>click</button>
+  );
+  const Container = (
+    <div>
+      <Title />
+      <Button />
+    </div>
+  );
   ReactDOM.render(container, root);
 </script>
 

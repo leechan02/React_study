@@ -11,11 +11,14 @@
 <script>
   const root = document.getElementById("root");
   function App() {
-    const [counter, modifier] = React.useState(0);
+    const [counter, setCounter] = React.useState(0);
+    const onClick = () => {
+      setCounter(counter + 1);
+    }
     return (
       <div>
         <h3>total clicks: {counter}</h3>
-        <button>click</button>
+        <button onClick={onClick}>click</button>
       </div>
     );
   }

@@ -1,36 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [toDo, setToDo] = useState("");
-  const [toDos, setToDos] = useState([]);
-  const onChange = (e) => {
-    setToDo(e.target.value);
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(toDo);
-    if (toDo === "") {
-      return;
-    }
-    setToDo("");
-    setToDos((current) => [...current, toDo]);
-  };
+  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState();
+  useEffect(() => {
+    fetch("https://api.coinpaprika.com/v1/coins")
+      .then((response) => response.json())
+      .then((data) => {
+        setCoins(data);
+        setLoading(false);
+      });
+  }, []);
   return (
     <div>
-      <h1>My To Dos ({toDos.length})</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          onChange={onChange}
-          value={toDo}
-          type='text'
-          placeholder='write your to do...'
-        />
-        <button>Add ToDo</button>
-      </form>
-      <hr />
+      <h1>The Coins! ({coins?.length})</h1>
+      {loading ? <strong>Loading...</strong> : null}
       <ul>
-        {toDos.map((item, index) => (
-          <li key={index}>{item}</li>
+        {coins?.map((coin, index) => (
+          <li key={index}>{coin.name} ({coin.symbol})</li>
         ))}
       </ul>
     </div>

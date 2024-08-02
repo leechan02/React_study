@@ -10,21 +10,22 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script>
   const root = document.getElementById("root");
-  function Title() {
-    return (
-      <h1>hello world</h1>
-    );
+  let counter = 0;
+  function countUp() {
+    counter = counter + 1;
+    console.log(counter);
+    render();
   }
-  const Button = () => (
-    <button>click</button>
-  );
-  const Container = (
+  function render() {
+    ReactDOM.render(<Container />, root);
+  }
+  const Container = () => (
     <div>
-      <Title />
-      <Button />
+      <h3>total clicks: {counter}</h3>
+      <button onClick={countUp}>click</button>
     </div>
   );
-  ReactDOM.render(container, root);
+  render();
 </script>
 
 </html>

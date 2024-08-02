@@ -1,11 +1,13 @@
-import Button from './Button';
-import styles from './App.module.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const onClick = () => setCounter(counter + 1);
+  console.log('render');
   return (
     <div>
-      <h1 className={styles.title}>Hello</h1>
-      <Button text="continue" />
+      <h1>{counter}</h1>
+      <button onClick={onClick}>Add 1</button>
     </div>
   );
 }

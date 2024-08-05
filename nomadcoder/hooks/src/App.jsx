@@ -1,8 +1,12 @@
+import useInput from './useInput';
+
 function App() {
+  const maxLen = (value) => value.length <= 10;
+  const name = useInput("Mr.", maxLen);
   return (
-    <div className="App">
-      <h1>Hello codeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className='App'>
+      <h1>Hello</h1>
+      <input placeholder='Name' {...name}/>
     </div>
   );
 }

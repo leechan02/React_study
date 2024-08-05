@@ -1,7 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Movies from './routers/Movies';
+import Movie from './routers/Movie';
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Movies />} />
+        <Route path="/movie/:id" element={<Movie />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

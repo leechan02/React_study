@@ -10,6 +10,7 @@ import {
   Title,
   Wrapper,
 } from "../components/AuthComponents";
+import GoogleBtn from "../components/GoogleBtn";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -89,6 +90,7 @@ export default function CreateAccount() {
       <Switcher>
         Already have an account? <Link to='/login'>Log in &rarr;</Link>
       </Switcher>
+      <GoogleBtn />
     </Wrapper>
   );
 }

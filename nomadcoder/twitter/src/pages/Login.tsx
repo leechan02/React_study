@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { Error, Input, Switcher, Title, Wrapper } from "../components/AuthComponents";
+import GoogleBtn from "../components/GoogleBtn";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ export default function Login() {
         Don't have an account?{" "}
         <Link to="/create-account">Create one &rarr;</Link>
       </Switcher>
+      <GoogleBtn />
     </Wrapper>
   );
 }
